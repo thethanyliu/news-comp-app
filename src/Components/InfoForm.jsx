@@ -16,7 +16,6 @@ const InfoForm = () => {
   const [exampleContentOne, setExampleContentOne] = useState([]);
   const [exampleContentTwo, setExampleContentTwo] = useState([]);
   const [textLengthDesc, setTextLengthDesc] = useState(0);
-  console.log(import.meta.env.VITE_API_KEY)
 
   useEffect(() => {
     window.sessionStorage.setItem("topic", JSON.stringify(topic));
@@ -89,7 +88,6 @@ const InfoForm = () => {
       navigate("/sources");
       return;
     }
-    console.log("hello");
     setMissingValues(1);
   };
 
