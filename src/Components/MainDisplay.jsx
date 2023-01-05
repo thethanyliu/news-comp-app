@@ -113,7 +113,7 @@ const MainDisplay = () => {
     <>
       {loading ? (
         <div className="flex flex-col pt-20">
-          <div className="grid grid-cols-2 pt-10 pb-5 px-2 md:px-12 xl:px-20">
+          <div className="grid grid-cols-2 pt-10 pb-5 px-2 md:px-12 xl:px-32">
             <div className="pr-3 md:pr-5">
               <div className="text-3xl font-bold text-slate-900">
                 {sources.source1}
