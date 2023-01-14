@@ -10,4 +10,5 @@ export const options = [
     { value: "PBS News", label: "PBS News", website: "pbs.org"},
     { value: "CBS News", label: "CBS News", website: "cbsnews.com"},
     { value: "CNBC", label: "CNBC", website: "cnbc.com"},
+    { value: "The Telegraph", label: "The Telegraph", website: "telegraph.co.uk"},
   ];
