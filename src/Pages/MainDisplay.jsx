@@ -155,21 +155,21 @@ const MainDisplay = () => {
           <ReactPaginate
             className="h-[40px] flex justify-center"
             breakLabel="..."
-            nextLabel="Next"
+            nextLabel=">"
             onPageChange={handlePageClick}
-            pageRangeDisplayed={1}
+            pageRangeDisplayed={2}
             pageCount={Math.ceil(
               Math.max(loadedContentOne.length, loadedContentTwo.length) /
                 perPage
             )}
-            marginPagesDisplayed={1}
-            previousLabel="Previous"
+            marginPagesDisplayed={0}
+            previousLabel="<"
             renderOnZeroPageCount={null}
-            pageLinkClassName="transition ease-in-out delay-0 hover:bg-[#2b2eff] cursor-pointer border border-black rounded-sm p-[8px] m-[5px]"
-            activeLinkClassName="bg-[#2b2eff]"
+            pageLinkClassName="transition ease-in-out delay-0 hover:bg-[#9e2eff] cursor-pointer border border-black rounded-sm p-[8px] m-[5px]"
+            activeLinkClassName="bg-[#9e2eff]"
             breakLinkClassName="flex"
-            previousLinkClassName="transition ease-in-out delay-0 hover:bg-[#2b2eff] cursor-pointer border border-black rounded-[2px] p-[8px] m-[5px]"
-            nextLinkClassName="transition ease-in-out delay-0 hover:bg-[#2b2eff] cursor-pointer border border-black rounded-sm p-[8px] m-[5px]"
+            previousLinkClassName="transition ease-in-out delay-0 hover:bg-[#9e2eff] cursor-pointer border border-black rounded-[2px] p-[8px] m-[5px]"
+            nextLinkClassName="transition ease-in-out delay-0 hover:bg-[#9e2eff] cursor-pointer border border-black rounded-sm p-[8px] m-[5px]"
           />
         </div>
       ) : (
