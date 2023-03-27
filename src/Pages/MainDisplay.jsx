@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ReactPaginate from "react-paginate";
-import NewsDisplay from "./NewsDisplay";
-import LoadingScreen from "./LoadingScreen";
-import { options } from "./Options";
+import NewsDisplay from "../Components/NewsDisplay";
+import LoadingScreen from "../Components/LoadingScreen";
+import { options } from "../Components/Options";
 
 const MainDisplay = () => {
   const [loading, setLoading] = useState(false);

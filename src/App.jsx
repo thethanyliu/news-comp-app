@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Layout from "./Components/Layout";
-import InfoForm from "./Components/InfoForm";
-import MainDisplay from "./Components/MainDisplay";
+import InfoForm from "./Pages/InfoForm";
+import MainDisplay from "./Pages/MainDisplay";
 
 function App() {
   return (

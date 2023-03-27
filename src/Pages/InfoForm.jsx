@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import NewsDisplayExample from "./NewsDisplayExample";
-import LoadingScreen from "./LoadingScreen";
-import Card from "./Card"
-import { options } from "./Options";
+import NewsDisplayExample from "../Components/NewsDisplayExample";
+import LoadingScreen from "../Components/LoadingScreen";
+import Card from "../Components/Card"
+import { options } from "../Components/Options";
 
 const InfoForm = () => {
   const navigate = useNavigate();
