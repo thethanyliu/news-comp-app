@@ -3,8 +3,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import NewsDisplayExample from "../Components/NewsDisplayExample";
 import LoadingScreen from "../Components/LoadingScreen";
-import Card from "../Components/Card"
+import Card from "../Components/Card";
 import { options } from "../Components/Options";
+import { data } from "autoprefixer";
 
 const InfoForm = () => {
   const navigate = useNavigate();
@@ -25,20 +26,19 @@ const InfoForm = () => {
 
   const getData = async () => {
     try {
-      const dataOne = await axios
-        .get(
-          `https://newsapi.org/v2/everything?q=midterms&domains=cnn.com&language=en&sortBy=popularity&apiKey=${import.meta.env.VITE_API_KEY}`
-        )
-        .then((firstResponse) => {
-          setExampleContentOne(firstResponse.data.articles);
-        });
-      const dataTwo = await axios
-        .get(
-          `https://newsapi.org/v2/everything?q=midterms&domains=foxnews.com&language=en&sortBy=popularity&apiKey=${import.meta.env.VITE_API_KEY}`
-        )
-        .then((secondResponse) => {
-          setExampleContentTwo(secondResponse.data.articles);
-        });
+      const dataOne = await axios.get(
+        `https://newsapi.org/v2/everything?q=midterms&domains=cnn.com&language=en&sortBy=popularity&apiKey=${
+          import.meta.env.VITE_API_KEY
+        }`
+      );
+      setExampleContentOne(dataOne.data.articles);
+      const dataTwo = await axios.get(
+        `https://newsapi.org/v2/everything?q=midterms&domains=foxnews.com&language=en&sortBy=popularity&apiKey=${
+          import.meta.env.VITE_API_KEY
+        }`
+      );
+      setExampleContentTwo(dataTwo.data.articles);
+
       setLoading(true);
     } catch (err) {
       console.log(err);
@@ -51,7 +51,7 @@ const InfoForm = () => {
     } else if (window.innerWidth > 768) {
       setTextLengthDesc(100);
     } else {
-      setTextLengthDesc(50)
+      setTextLengthDesc(50);
     }
   };
 
@@ -110,7 +110,7 @@ const InfoForm = () => {
                   <input
                     type="text"
                     value={topic}
-                    placeholder="eg: Kevin McCarthy"
+                    placeholder="eg: Tiktok"
                     onChange={titleChangeHandler}
                     className="pb-1 pl-1 w-full border border-black rounded-md"
                   />
@@ -186,7 +186,10 @@ const InfoForm = () => {
                     title={article.title}
                     source={article.source.name}
                     url={article.url}
-                    description={article.description.substring(0, textLengthDesc)}
+                    description={article.description.substring(
+                      0,
+                      textLengthDesc
+                    )}
                   />
                 ))}
             </div>
@@ -199,7 +202,10 @@ const InfoForm = () => {
                     title={article.title}
                     source={article.source.name}
                     url={article.url}
-                    description={article.description.substring(0, textLengthDesc)}
+                    description={article.description.substring(
+                      0,
+                      textLengthDesc
+                    )}
                   />
                 ))}
             </div>

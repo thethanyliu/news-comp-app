@@ -60,16 +60,14 @@ const MainDisplay = () => {
         .get(
           `https://newsapi.org/v2/everything?q=${topic}&domains=${sourceOneSite}&language=en&sortBy=${sortByOne}&apiKey=${import.meta.env.VITE_API_KEY}`
         )
-        .then((firstResponse) => {
-          setLoadedContentOne(firstResponse.data.articles);
-        });
+        setLoadedContentOne(dataOne.data.articles);
+
       const dataTwo = await axios
         .get(
           `https://newsapi.org/v2/everything?q=${topic}&domains=${sourceTwoSite}&language=en&sortBy=${sortByTwo}&apiKey=${import.meta.env.VITE_API_KEY}`
         )
-        .then((secondResponse) => {
-          setLoadedContentTwo(secondResponse.data.articles);
-        });
+        setLoadedContentTwo(dataTwo.data.articles);
+
       setLoading(true);
     } catch (err) {
       console.log(err);
