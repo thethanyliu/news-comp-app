@@ -5,7 +5,6 @@ import NewsDisplayExample from "../Components/NewsDisplayExample";
 import LoadingScreen from "../Components/LoadingScreen";
 import Card from "../Components/Card";
 import { options } from "../Components/Options";
-import { data } from "autoprefixer";
 
 const InfoForm = () => {
   const navigate = useNavigate();
@@ -31,17 +30,31 @@ const InfoForm = () => {
           import.meta.env.VITE_API_KEY
         }`
       );
+
+      if (!dataOne.status === "ok") {
+        throw new Error(dataOne.message);
+      }
       setExampleContentOne(dataOne.data.articles);
+    } catch (err) {
+      console.error(err.message);
+    }
+
+    try {
       const dataTwo = await axios.get(
         `https://newsapi.org/v2/everything?q=midterms&domains=foxnews.com&language=en&sortBy=popularity&apiKey=${
           import.meta.env.VITE_API_KEY
         }`
       );
+
+      if (!dataTwo.status === "ok") {
+        throw new Error(dataTwo.message);
+      }
+
       setExampleContentTwo(dataTwo.data.articles);
 
       setLoading(true);
     } catch (err) {
-      console.log(err);
+      console.error(err.message);
     }
   };
 

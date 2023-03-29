@@ -54,23 +54,34 @@ const MainDisplay = () => {
   };
 
   const getData = async () => {
-    setLoading(false)
+    setLoading(false);
     try {
-      const dataOne = await axios
-        .get(
-          `https://newsapi.org/v2/everything?q=${topic}&domains=${sourceOneSite}&language=en&sortBy=${sortByOne}&apiKey=${import.meta.env.VITE_API_KEY}`
-        )
-        setLoadedContentOne(dataOne.data.articles);
-
-      const dataTwo = await axios
-        .get(
-          `https://newsapi.org/v2/everything?q=${topic}&domains=${sourceTwoSite}&language=en&sortBy=${sortByTwo}&apiKey=${import.meta.env.VITE_API_KEY}`
-        )
-        setLoadedContentTwo(dataTwo.data.articles);
+      const dataOne = await axios.get(
+        `https://newsapi.org/v2/everything?q=${topic}&domains=${sourceOneSite}&language=en&sortBy=${sortByOne}&apiKey=${
+          import.meta.env.VITE_API_KEY
+        }`
+      );
+      if (!dataOne.status === "ok") {
+        throw new Error(dataOne.message);
+      }
+      setLoadedContentOne(dataOne.data.articles);
+    } catch (err) {
+      console.error(err.message);
+    }
+    try {
+      const dataTwo = await axios.get(
+        `https://newsapi.org/v2/everything?q=${topic}&domains=${sourceTwoSite}&language=en&sortBy=${sortByTwo}&apiKey=${
+          import.meta.env.VITE_API_KEY
+        }`
+      );
+      if (!dataTwo.status === "ok") {
+        throw new Error(dataTwo.message);
+      }
+      setLoadedContentTwo(dataTwo.data.articles);
 
       setLoading(true);
     } catch (err) {
-      console.log(err);
+      console.error(err.message);
     }
   };
 
