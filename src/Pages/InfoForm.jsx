@@ -123,7 +123,7 @@ const InfoForm = () => {
                   <input
                     type="text"
                     value={topic}
-                    placeholder="eg: Tiktok"
+                    placeholder="eg: Debt Ceiling"
                     onChange={titleChangeHandler}
                     className="pb-1 pl-1 w-full border border-black rounded-md"
                   />
